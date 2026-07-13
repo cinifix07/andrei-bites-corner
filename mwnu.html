@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Menu | Gourmet Kitchen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..900;1,8..60,400..900&amp;family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#fdcdb9",
+                    "on-secondary-fixed-variant": "#603f31",
+                    "on-secondary-container": "#795546",
+                    "secondary-fixed": "#ffdbcd",
+                    "tertiary-container": "#97b100",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#404c00",
+                    "surface-tint": "#914d00",
+                    "surface-container-lowest": "#ffffff",
+                    "outline-variant": "#dcc2af",
+                    "on-primary-fixed-variant": "#6e3900",
+                    "primary-fixed-dim": "#ffb77e",
+                    "inverse-primary": "#ffb77e",
+                    "on-tertiary": "#ffffff",
+                    "secondary": "#7a5647",
+                    "inverse-surface": "#30302f",
+                    "error": "#ba1a1a",
+                    "on-tertiary-container": "#354000",
+                    "primary-fixed": "#ffdcc3",
+                    "on-background": "#1b1c1b",
+                    "surface-container-low": "#f5f3f1",
+                    "surface-container-highest": "#e4e2e0",
+                    "tertiary-fixed-dim": "#b7d32f",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "surface-container-high": "#eae8e6",
+                    "background": "#fbf9f7",
+                    "on-tertiary-fixed": "#181e00",
+                    "inverse-on-surface": "#f2f0ee",
+                    "on-error": "#ffffff",
+                    "secondary-fixed-dim": "#ecbca9",
+                    "primary": "#914d00",
+                    "on-secondary-fixed": "#2e1509",
+                    "on-surface-variant": "#554335",
+                    "on-surface": "#1b1c1b",
+                    "surface": "#fbf9f7",
+                    "tertiary": "#556500",
+                    "on-error-container": "#93000a",
+                    "primary-container": "#f68b1f",
+                    "on-primary-fixed": "#2f1500",
+                    "outline": "#897363",
+                    "surface-container": "#efedec",
+                    "on-primary-container": "#5e3000",
+                    "tertiary-fixed": "#d2f04b",
+                    "surface-dim": "#dbdad8",
+                    "surface-bright": "#fbf9f7",
+                    "surface-variant": "#e4e2e0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-gap-desktop": "120px",
+                    "margin-mobile": "20px",
+                    "margin-desktop": "80px",
+                    "section-gap-mobile": "64px",
+                    "gutter": "24px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "display-lg-mobile": ["\"Source Serif 4\""],
+                    "headline-md": ["\"Source Serif 4\""],
+                    "display-lg": ["\"Source Serif 4\""],
+                    "label-md": ["Work Sans"],
+                    "headline-sm": ["\"Source Serif 4\""],
+                    "body-md": ["Work Sans"],
+                    "body-lg": ["Work Sans"]
+            },
+            "fontSize": {
+                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .backdrop-blur-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .menu-card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(74, 44, 31, 0.12);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-background/95 dark:bg-background/95 shadow-[0_10px_30px_rgba(74,44,31,0.08)] backdrop-blur-md">
+<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-7xl mx-auto">
+
+<div class="flex items-center gap-2">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+
+</div>
+</div>
+</nav>
+</header>
+<main class="pt-32 pb-section-gap-desktop">
+<!-- Hero Title Section -->
+<section class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop mb-12">
+<div class="max-w-3xl">
+</div>
+</section>
+<!-- Category Filters -->
+<section class="sticky top-20 z-40 bg-background/80 backdrop-blur-md py-6 mb-12">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex gap-4 overflow-x-auto hide-scrollbar pb-2">
+<button class="whitespace-nowrap px-8 py-3 rounded-full font-label-md text-label-md bg-primary text-on-primary shadow-lg shadow-primary/20 transition-all">All Items</button>
+<button class="whitespace-nowrap px-8 py-3 rounded-full font-label-md text-label-md bg-surface-container-high text-on-surface-variant hover:bg-secondary-container hover:text-on-secondary-container transition-all">BURGERS</button>
+<button class="whitespace-nowrap px-8 py-3 rounded-full font-label-md text-label-md bg-surface-container-high text-on-surface-variant hover:bg-secondary-container hover:text-on-secondary-container transition-all">SNACKS</button>
+<button class="whitespace-nowrap px-8 py-3 rounded-full font-label-md text-label-md bg-surface-container-high text-on-surface-variant hover:bg-secondary-container hover:text-on-secondary-container transition-all">PIZZA</button>
+<button class="whitespace-nowrap px-8 py-3 rounded-full font-label-md text-label-md bg-surface-container-high text-on-surface-variant hover:bg-secondary-container hover:text-on-secondary-container transition-all">DRINKS</button>
+<button class="whitespace-nowrap px-8 py-3 rounded-full font-label-md text-label-md bg-surface-container-high text-on-surface-variant hover:bg-secondary-container hover:text-on-secondary-container transition-all">SHAKES</button>
+
+</div>
+</div>
+</section>
+<!-- Menu Grid -->
+<section class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
+<!-- Appetizers Section -->
+<div class="mb-16">
+<div class="flex items-baseline gap-4 mb-8">
+<h2 class="font-headline-md text-headline-md text-on-secondary-fixed-variant">BURGERS</h2>
+<div class="h-px flex-grow bg-outline-variant/30"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Item 1 -->
+<div class="group bg-white rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(74,44,31,0.05)] transition-all duration-300 menu-card-hover border border-outline-variant/20 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A macro overhead shot of gourmet bruschetta with heirloom cherry tomatoes, fresh basil leaves, and a balsamic glaze drizzle on toasted sourdough. Warm, natural morning sunlight highlights the textures of the crust and the glistening oil. The style is bright and clean with a focus on fresh ingredients and vibrant red and green colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0eH2vaX_3PlPP5aIQdnTZjcsYEBcJaAfOeD0CXFsPOnA-KhkzG3I3SvWhvHaBMWZCJvfiMcaGbNA37zfolzIMdbmGrQHFWvpM7hOsdSEpAysc7pFzesmz7s_y5VwPJwRHsuI10rrvnKrPXwHKQo9bSM3CLMy2aLI1tGsm3-ArnGijBLaO6j833giXcdTVSL9kWsgmgkq2axXCEWUdIv-tuL4d36VpS34smfNe89XZhCQUUcJVy0MW"/>
+<div class="absolute top-4 right-4 px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed rounded-full font-label-md text-label-md opacity-90">Chef's Special</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-sm text-headline-sm text-on-secondary-fixed-variant group-hover:text-primary transition-colors">Heirloom Bruschetta</h3>
+<span class="font-label-md text-label-md text-primary font-bold">$16.00</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Toasted sourdough topped with vine-ripened tomatoes, torn basil, and aged balsamic reduction.</p>
+<div class="mt-auto flex items-center justify-between">
+<div class="flex gap-2">
+<span class="px-2 py-0.5 rounded bg-tertiary/10 text-tertiary font-label-md text-[10px] uppercase tracking-wider">Vegan</span>
+</div>
+<button class="flex items-center gap-2 bg-primary-container text-on-primary-container px-5 py-2.5 rounded-lg font-label-md text-label-md font-bold transition-all hover:brightness-110 active:scale-95 shadow-md shadow-primary/20">
+<span class="material-symbols-outlined text-[18px]" data-icon="add_shopping_cart">add_shopping_cart</span>
+                                    Add to Cart
+                                </button>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="group bg-white rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(74,44,31,0.05)] transition-all duration-300 menu-card-hover border border-outline-variant/20 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="High-end plated seared sea scallops on a bed of vibrant pea purée, garnished with edible microgreens and crispy pancetta bits. Professional restaurant lighting creates soft shadows and highlights the golden crust of the scallops. Elegant, minimalist presentation on a warm-toned ceramic plate." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTSy4yxq95W5unw25xnTwx5O0TnhVqqj4mV6gyko1DBIg78GKZQdMmW45Wt9Y7Vyn5MEfJQJkqw2Jl7gSwpnAraZOOIzrvv_MhRNOpvAO8LbjBfPkr_CD7SSDAo7d3zOP27CylZMredb5nhqg9UtJJ15TDRvHbgVSASlNVUZMctQPj0r17kxTeT-vmrxgGbHy4uj7Xu3_n03CBCUa-y9eguPRyq_4vwW5vnT2Xb1uF6066zU7F4xdQ"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-sm text-headline-sm text-on-secondary-fixed-variant group-hover:text-primary transition-colors">Seared Scallops</h3>
+<span class="font-label-md text-label-md text-primary font-bold">$22.00</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Pan-seared Hokkaido scallops, sweet pea purée, and crispy pancetta dust.</p>
+<div class="mt-auto flex items-center justify-between">
+<div class="flex gap-2">
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-container font-label-md text-[10px] uppercase tracking-wider">Gluten Free</span>
+</div>
+<button class="flex items-center gap-2 bg-primary-container text-on-primary-container px-5 py-2.5 rounded-lg font-label-md text-label-md font-bold transition-all hover:brightness-110 active:scale-95 shadow-md shadow-primary/20">
+<span class="material-symbols-outlined text-[18px]" data-icon="add_shopping_cart">add_shopping_cart</span>
+                                    Add to Cart
+                                </button>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="group bg-white rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(74,44,31,0.05)] transition-all duration-300 menu-card-hover border border-outline-variant/20 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A platter of artisanal cheeses including brie, aged cheddar, and gorgonzola, served with honey, fresh figs, and walnut bread. Warm wooden background with soft ambient lighting. The composition is rustic yet refined, using a sophisticated earth-toned palette that emphasizes luxury and quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4oIBOLrQ5a-OEaX_xKBXaZ9AiDe2wsWzZuYXZ6FoXq9PtAQfLQSPocnef8hw3Bp4y0vDv78nYmbMfTlNcfqFx3zP6x8pMgs473cxXGsyWdUjIz9MvqjDBx-zm3H2REaMBh5BUq9CNvf4_ZBWnp4aFeNNoI6Q06Rcz99DXWxXAswSXN9mAVp8e1WO-Ejf9LhijrEEJWz8ggr95JiJrVnzRgZCHVLHayfL9PduSlwanqpw4u63RNmPT"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-sm text-headline-sm text-on-secondary-fixed-variant group-hover:text-primary transition-colors">Artisanal Cheese</h3>
+<span class="font-label-md text-label-md text-primary font-bold">$24.00</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Selection of local and imported cheeses, honeycomb, and dried mission figs.</p>
+<div class="mt-auto flex items-center justify-between">
+<div class="flex gap-2"></div>
+<button class="flex items-center gap-2 bg-primary-container text-on-primary-container px-5 py-2.5 rounded-lg font-label-md text-label-md font-bold transition-all hover:brightness-110 active:scale-95 shadow-md shadow-primary/20">
+<span class="material-symbols-outlined text-[18px]" data-icon="add_shopping_cart">add_shopping_cart</span>
+                                    Add to Cart
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Mains Section -->
+<div class="mb-16">
+<div class="flex items-baseline gap-4 mb-8">
+<h2 class="font-headline-md text-headline-md text-on-secondary-fixed-variant">SNACKS</h2>
+<div class="h-px flex-grow bg-outline-variant/30"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Main 1 -->
+<div class="group bg-white rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(74,44,31,0.05)] transition-all duration-300 menu-card-hover border border-outline-variant/20 flex flex-col md:flex-row h-full">
+<div class="relative w-full md:w-2/5 h-64 md:h-auto overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A perfectly cooked medium-rare filet mignon steak with a rich red wine reduction sauce, served alongside roasted root vegetables. High-end food styling with moody, dramatic lighting that creates deep shadows and highlights the glossy sauce and perfectly charred surface of the meat." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5L1RaxM3AorCQwBbtFWAN6P5HroeunTQvDZ1mp6mnBAPuRsurZkIMTCjf5bldwvSwEXYdBrqhBy_So7Swfb9cQZBJ5YJHZKpft2lNdkUUnprrxk63z_Ed_sHkMS_Zi6vCPiV4C37E8Tsp4JdZo7mgxNkI69F-nZpmcg1NBkPPa1_ZlBVsciMP6a44cWxi6p-GBKaZr97nxAP8Tyt39L4f6B7u2Zgmciskr84V3M_q5okiESJE90j_"/>
+</div>
+<div class="p-8 flex flex-col flex-grow md:w-3/5">
+<div class="flex justify-between items-start mb-3">
+<h3 class="font-headline-sm text-headline-sm text-on-secondary-fixed-variant group-hover:text-primary transition-colors">Truffle Filet Mignon</h3>
+<span class="font-label-md text-label-md text-primary font-bold">$48.00</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Grass-fed beef tenderloin, black truffle butter, roasted marrow, and seasonal vegetables.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="px-3 py-1 rounded bg-secondary-fixed/50 text-on-secondary-container font-label-md text-[11px] uppercase tracking-wider font-semibold">Signature Dish</span>
+<button class="flex items-center gap-2 bg-primary-container text-on-primary-container px-6 py-3 rounded-lg font-label-md text-label-md font-bold transition-all hover:brightness-110 active:scale-95 shadow-md shadow-primary/20">
+<span class="material-symbols-outlined text-[20px]" data-icon="add_shopping_cart">add_shopping_cart</span>
+                                    Add to Cart
+                                </button>
+</div>
+</div>
+</div>
+<!-- Main 2 -->
+<div class="group bg-white rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(74,44,31,0.05)] transition-all duration-300 menu-card-hover border border-outline-variant/20 flex flex-col md:flex-row h-full">
+<div class="relative w-full md:w-2/5 h-64 md:h-auto overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Wild-caught pan-seared salmon fillet with a crispy skin, resting on a bed of lemon-dill risotto and steamed asparagus. Bright, airy photography with natural daylight, emphasizing the freshness of the fish and the vibrant greens of the vegetables. The style is healthy, upscale, and inviting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDATEXW2ma8kbEgBdzk-kfQAPyhDL2do5zJRYMjWzLb4ZJ2xniSPm0ckSbAosCgB8IMYZTokzxQInuvHDOFGhch_gGDZkqW1tnz-mz7bHuD9tGgkP0zClaGCRkcjVhmlVIlJxeeTurTFvu9G-yWgtFS22Y9h7ZR8pn2k6oc0CNpj5iVs9Zo9HJxwdHfKT6rn5HliG0lEnEJPf2vn7GFgt3ELhuGvi7VWp4iKfyu6sn5PWbNamCYvOfG"/>
+</div>
+<div class="p-8 flex flex-col flex-grow md:w-3/5">
+<div class="flex justify-between items-start mb-3">
+<h3 class="font-headline-sm text-headline-sm text-on-secondary-fixed-variant group-hover:text-primary transition-colors">Wild Salmon Risotto</h3>
+<span class="font-label-md text-label-md text-primary font-bold">$36.00</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Pan-seared Atlantic salmon, creamy saffron risotto, and grilled asparagus spears.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="px-3 py-1 rounded bg-secondary-fixed/50 text-on-secondary-container font-label-md text-[11px] uppercase tracking-wider font-semibold">Healthy Choice</span>
+<button class="flex items-center gap-2 bg-primary-container text-on-primary-container px-6 py-3 rounded-lg font-label-md text-label-md font-bold transition-all hover:brightness-110 active:scale-95 shadow-md shadow-primary/20">
+<span class="material-symbols-outlined text-[20px]" data-icon="add_shopping_cart">add_shopping_cart</span>
+                                    Add to Cart
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Desserts Section -->
+<div class="mb-16">
+<div class="flex items-baseline gap-4 mb-8">
+<h2 class="font-headline-md text-headline-md text-on-secondary-fixed-variant">PIZZA</h2>
+<div class="h-px flex-grow bg-outline-variant/30"></div>    
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Dessert 1 -->
+<div class="group bg-white rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(74,44,31,0.05)] transition-all duration-300 menu-card-hover border border-outline-variant/20 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A decadent dark chocolate lava cake with a molten center, served with a scoop of vanilla bean gelato and a fresh strawberry. Sophisticated lighting highlights the texture of the warm cake and the smooth, cold ice cream. The scene is intimate and indulgent, featuring rich chocolate tones and bright fruit accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqCoqzZbl2lXS37PY1ZnxOsSeEKcQ0SAq-ZY-yzaeBSw1oRpUvN5sdMpweW7dlFWgJjMq1SOv8aDd2s30Y-LJjUpqP-5rg1iaj_vFikmkPqComHr-bwG6PoT6H0ReYBOGqWggEgoGpDz8VTzJ47oMpRaZevqRYaZntWZadQCQOlSTfkmsVS8VebMQXtE-pQ7nxnEjp0Ot08W5cpb2OvNocMWOZpNboRt19lL3dSwWLrg_qYVR0Hjal"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-sm text-headline-sm text-on-secondary-fixed-variant group-hover:text-primary transition-colors">Molten Lava Cake</h3>
+<span class="font-label-md text-label-md text-primary font-bold">$14.00</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Valrhona dark chocolate cake with a warm flowing center, served with Tahitian vanilla bean gelato.</p>
+<div class="mt-auto">
+<button class="w-full flex items-center justify-center gap-2 bg-primary-container text-on-primary-container px-5 py-3 rounded-lg font-label-md text-label-md font-bold transition-all hover:brightness-110 active:scale-95">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+                                    Add to Cart
+                                </button>
+</div>
+</div>
+</div>
+<!-- Dessert 2 -->
+<div class="group bg-white rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(74,44,31,0.05)] transition-all duration-300 menu-card-hover border border-outline-variant/20 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Classic crème brûlée in a shallow ceramic dish with a perfectly caramelized, burnt sugar crust. A small silver spoon is about to crack the surface. Garnished with fresh raspberries and a mint leaf. Soft, golden lighting creates a warm and inviting dessert scene with focus on the glass-like texture of the sugar." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdwAs2ktptJSyHOrjEowTssJ_G03J12bIzyN6fg_EWPck3OatelIjrC4669SLcknhxC5VK7RXuwXN0pHltA2mUBabx8S1nZomBO2m_fydwWxKqV6h6lGiTXx5H9ZX06JY-lgp9KyIPQyWF0S-aucdO-iqdNYhZ_xFdwVUX5Obv7zsvlOZYFJAWaEBlMEP89eF3qkQmLZyj_dYfX5xEW5o0SYzwroNyZQQxaxxUPaUDZ4Lmi7GMt4kN"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-sm text-headline-sm text-on-secondary-fixed-variant group-hover:text-primary transition-colors">Classic Crème Brûlée</h3>
+<span class="font-label-md text-label-md text-primary font-bold">$12.00</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Traditional vanilla custard topped with a brittle layer of caramelized sugar and fresh berries.</p>
+<div class="mt-auto">
+<button class="w-full flex items-center justify-center gap-2 bg-primary-container text-on-primary-container px-5 py-3 rounded-lg font-label-md text-label-md font-bold transition-all hover:brightness-110 active:scale-95">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+                                    Add to Cart
+                                </button>
+</div>
+</div>
+</div>
+<!-- Dessert 3 -->
+<div class="group bg-white rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(74,44,31,0.05)] transition-all duration-300 menu-card-hover border border-outline-variant/20 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A refreshing lemon tart with a crisp buttery crust and smooth lemon curd filling, topped with peaks of toasted meringue. Bright, sunny lighting evokes a Mediterranean afternoon. The style is sharp and clean with vibrant yellows and crisp whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBti6Wn0GoeAI_l2_FqjG_0QrGWOm1QSm5_DWlUwY3IvrUxn7f433x0jumuPgvMlcMP716im2m7g8DWoCzHz6bxpw8AUqxu_8U3Lemk8tueX8z8qtjuPim7SBfNxEjb5CUpuz5wagfmn7hXoxo9TTkYStpovlY-xubHKtR_a0sKe2RofSgYU9vPg5M2SrKPi3SppyHIP5Qs0lRPcSO6E2RBShfDoEbjYzLVJBNKgfxPwzI9VFzgWcPE"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-sm text-headline-sm text-on-secondary-fixed-variant group-hover:text-primary transition-colors">Lemon Meringue Tart</h3>
+<span class="font-label-md text-label-md text-primary font-bold">$11.00</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Zesty lemon curd in a buttery shortcrust pastry, finished with torched Italian meringue.</p>
+<div class="mt-auto">
+<button class="w-full flex items-center justify-center gap-2 bg-primary-container text-on-primary-container px-5 py-3 rounded-lg font-label-md text-label-md font-bold transition-all hover:brightness-110 active:scale-95">
+<span class="material-symbols-outlined" data-icon="add_shopping_cart">add_shopping_cart</span>
+                                    Add to Cart
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full rounded-t-xl bg-surface-container-low dark:bg-inverse-surface border-t border-outline-variant">
+
+
+
+<div class="flex gap-2">
+</div>
+</div>
+</div>
+<div class="w-full border-t border-outline-variant/30 py-8 px-margin-mobile md:px-margin-desktop text-center">
+<p class="font-label-md text-label-md text-on-surface-variant">© 2026 Andrei Bites Corner. All rights reserved. | Developed CINIFIX Technology</p>
+</div>
+</footer>
+<!-- Cart Floating Action (Contextual FAB) -->
+<div class="fixed bottom-8 right-8 z-50">
+<button class="w-16 h-16 rounded-full bg-primary shadow-xl shadow-primary/30 text-on-primary flex items-center justify-center hover:scale-110 active:scale-95 transition-all group overflow-hidden">
+<span class="material-symbols-outlined text-[32px] group-hover:hidden" data-icon="shopping_basket">shopping_basket</span>
+<span class="hidden group-hover:block font-label-md text-label-md font-bold">VIEW CART</span>
+<div class="absolute top-2 right-2 w-5 h-5 bg-tertiary rounded-full border-2 border-primary text-[10px] flex items-center justify-center font-bold">3</div>
+</button>
+</div>
+<script>
+        // Simple Interaction logic for category selection
+        document.querySelectorAll('button.whitespace-nowrap').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active classes from all
+                document.querySelectorAll('button.whitespace-nowrap').forEach(b => {
+                    b.classList.remove('bg-primary', 'text-on-primary', 'shadow-lg', 'shadow-primary/20');
+                    b.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+                });
+                // Add active classes to clicked
+                this.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+                this.classList.add('bg-primary', 'text-on-primary', 'shadow-lg', 'shadow-primary/20');
+            });
+        });
+
+        // Micro-interaction for Add to Cart
+        document.querySelectorAll('button').forEach(btn => {
+            if (btn.innerText.includes('Add to Cart')) {
+                btn.addEventListener('click', function(e) {
+                    const originalText = this.innerHTML;
+                    this.innerHTML = '<span class="material-symbols-outlined animate-bounce" data-icon="check">check</span> Added!';
+                    this.classList.replace('bg-primary-container', 'bg-tertiary');
+                    this.classList.replace('text-on-primary-container', 'text-on-tertiary');
+                    
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                        this.classList.replace('bg-tertiary', 'bg-primary-container');
+                        this.classList.replace('text-on-tertiary', 'text-on-primary-container');
+                    }, 2000);
+                });
+            }
+        });
+    </script>
+</body></html>

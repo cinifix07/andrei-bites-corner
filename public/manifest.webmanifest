@@ -1,0 +1,23 @@
+{
+  "name": "Andrei Bites Corner",
+  "short_name": "Andrei Bites",
+  "description": "Andrei Bites Corner web app",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#f7c948",
+  "icons": [
+    {
+      "src": "/OFFICAL-LOGO.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/OFFICAL-LOGO.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
