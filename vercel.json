@@ -1,0 +1,15 @@
+{
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "env": {
+    "VITE_CONVEX_URL": "https://fastidious-flamingo-123.convex.cloud",
+    "VITE_CONVEX_SITE_URL": "https://fastidious-flamingo-123.convex.site"
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

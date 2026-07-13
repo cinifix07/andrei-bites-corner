@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "deploy": "convex deploy --env-file .env.production --cmd \"npm run build\" --cmd-url-env-var-name VITE_CONVEX_URL",
     "lint": "eslint .",
     "preview": "vite preview"
   },
