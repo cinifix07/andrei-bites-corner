@@ -311,7 +311,7 @@
 .report-revenue.negative strong { color: #a43128; }
 
 .product-modal-backdrop { position: fixed; inset: 0; z-index: 50; display: grid; padding: 22px; overflow-y: auto; background: rgba(25,14,9,.62); backdrop-filter: blur(5px); animation: admin-fade-in .2s ease both; place-items: center; }
-.product-modal { width: min(100%, 520px); overflow: hidden; border: 1px solid rgba(255,255,255,.45); border-radius: 18px; background: white; box-shadow: 0 28px 80px rgba(25,14,9,.35); animation: product-modal-in .25s ease both; }
+.product-modal { width: min(100%, 520px); max-height: calc(100dvh - 44px); overflow: hidden auto; border: 1px solid rgba(255,255,255,.45); border-radius: 18px; background: white; box-shadow: 0 28px 80px rgba(25,14,9,.35); animation: product-modal-in .25s ease both; }
 .product-modal-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 24px 26px 20px; border-bottom: 1px solid #efe4de; background: linear-gradient(135deg, #fffaf7, #fff); }
 .product-modal-header p { margin: 0 0 4px; color: var(--admin-gold); font-size: 10px; font-weight: 700; letter-spacing: .15em; }
 .product-modal-header h3 { margin: 0; color: var(--admin-cocoa); font: 700 28px 'Playfair Display', serif; }
@@ -319,11 +319,15 @@
 .product-modal form { display: grid; gap: 19px; padding: 24px 26px 26px; }
 .product-modal label { display: grid; gap: 8px; color: var(--admin-cocoa); font-size: 12px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
 .product-modal input, .product-modal select { width: 100%; padding: 13px 14px; border: 1px solid #ddcec6; border-radius: 9px; outline: none; color: var(--admin-cocoa); background: #fffcfa; font: 15px 'Source Sans 3', sans-serif; text-transform: none; transition: border-color .2s, box-shadow .2s; }
+.product-modal input[type="file"] { min-width: 0; padding: 10px 12px; overflow: hidden; font-size: 14px; text-overflow: ellipsis; }
 .product-modal select { min-height: 49px; cursor: pointer; }
 .product-modal input:focus, .product-modal select:focus { border-color: var(--admin-gold); box-shadow: 0 0 0 3px rgba(115,92,0,.12); }
+.product-photo-field { min-width: 0; }
+.product-photo-preview { display: block; width: 100%; max-height: min(34dvh, 260px); aspect-ratio: 16 / 10; border: 1px solid #eadcd5; border-radius: 10px; background: #fff8f2; object-fit: contain; }
+.product-photo-field small { color: var(--admin-muted); font-size: 10px; line-height: 1.35; letter-spacing: .07em; }
 .product-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .product-modal-actions { display: flex; justify-content: flex-end; gap: 10px; padding-top: 5px; }
-.product-modal-actions button { padding: 12px 18px; border-radius: 8px; font-weight: 700; cursor: pointer; }
+.product-modal-actions button { min-height: 46px; padding: 12px 18px; border-radius: 8px; font-weight: 700; cursor: pointer; white-space: nowrap; }
 .product-modal-actions .cancel { border: 1px solid #ddcec6; color: var(--admin-muted); background: white; }
 .product-modal-actions .save { border: 1px solid var(--admin-cocoa); color: white; background: var(--admin-cocoa); }
 .product-modal-actions .save:hover { background: var(--admin-gold); border-color: var(--admin-gold); }
@@ -570,6 +574,9 @@
   .product-form-row { grid-template-columns: 1fr; }
   .product-modal-header, .product-modal form { padding-inline: 20px; }
   .product-modal-actions { display: grid; grid-template-columns: 1fr 1fr; }
+  .product-modal-actions button { width: 100%; padding-inline: 10px; white-space: normal; }
+  .product-photo-preview { max-height: 220px; }
+  .product-modal input[type="file"] { font-size: 13px; }
   .admin-heading h2,
   .inventory-heading h2 {
     font-size: 31px;
