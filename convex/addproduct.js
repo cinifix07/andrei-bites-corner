@@ -1,6 +1,5 @@
-import { action, mutation, query } from "./_generated/server";
+import { mutation, query } from "./_generated/server";
 import { v } from "convex/values";
-import { uploadImageToAppsScript } from "./driveUpload";
 
 export const list = query({
   args: {},
@@ -56,17 +55,6 @@ export const generateImageUploadUrl = mutation({
   args: {},
   handler: async (ctx) => {
     return await ctx.storage.generateUploadUrl();
-  },
-});
-
-export const uploadProductImage = action({
-  args: {
-    fileBase64: v.string(),
-    fileName: v.string(),
-    mimeType: v.string(),
-  },
-  handler: async (_ctx, args) => {
-    return await uploadImageToAppsScript(args);
   },
 });
 

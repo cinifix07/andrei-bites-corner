@@ -1,5 +1,5 @@
 import { Component, useEffect, useState } from 'react'
-import { useAction, useMutation, useQuery } from 'convex/react'
+import { useMutation, useQuery } from 'convex/react'
 import { api } from '../../convex/_generated/api'
 import './ADMIN.css'
 import logo from '../assets/OFFICAL-LOGO.png'
@@ -30,15 +30,6 @@ const pesoFormatter = new Intl.NumberFormat('en-PH', { style: 'currency', curren
 const adminViewStorageKey = 'andrei-bites-admin-view'
 const adminArchivesStorageKey = 'andrei-bites-admin-archives-open'
 const adminViews = new Set(navigation.map(([, label]) => label).filter((label) => label !== 'Archives'))
-
-function fileToBase64(file) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader()
-    reader.onload = () => resolve(String(reader.result).split(',')[1] ?? '')
-    reader.onerror = () => reject(new Error('Unable to read image file.'))
-    reader.readAsDataURL(file)
-  })
-}
 
 class ArchivesErrorBoundary extends Component {
   state = { error: null }
@@ -285,7 +276,6 @@ function InventoryView() {
   const updateProduct = useMutation(api.addproduct.update)
   const removeProduct = useMutation(api.addproduct.remove)
   const generateImageUploadUrl = useMutation(api.addproduct.generateImageUploadUrl)
-  const uploadProductImage = useAction(api.addproduct.uploadProductImage)
   const [editingProduct, setEditingProduct] = useState(null)
   const [pendingEditProduct, setPendingEditProduct] = useState(null)
   const [pendingDeleteProduct, setPendingDeleteProduct] = useState(null)
@@ -371,33 +361,19 @@ function InventoryView() {
           throw new Error('Please upload a valid image file.')
         }
 
-        try {
-          const uploadedImage = await uploadProductImage({
-            fileBase64: await fileToBase64(photo),
-            fileName: `${product.name}-${Date.now()}-${photo.name}`.replace(/\s+/g, '-'),
-            mimeType: photo.type,
-          })
+        const uploadUrl = await generateImageUploadUrl()
+        const uploadResponse = await fetch(uploadUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': photo.type },
+          body: photo,
+        })
 
-          product.imageUrl = uploadedImage.url
-        } catch (uploadError) {
-          if (!(uploadError instanceof Error) || !uploadError.message.includes('GOOGLE_APPS_SCRIPT_UPLOAD_URL')) {
-            throw new Error('Unable to upload product photo to Google Drive.', { cause: uploadError })
-          }
-
-          const uploadUrl = await generateImageUploadUrl()
-          const uploadResponse = await fetch(uploadUrl, {
-            method: 'POST',
-            headers: { 'Content-Type': photo.type },
-            body: photo,
-          })
-
-          if (!uploadResponse.ok) {
-            throw new Error('Unable to upload product photo.', { cause: uploadError })
-          }
-
-          const { storageId } = await uploadResponse.json()
-          product.imageStorageId = storageId
+        if (!uploadResponse.ok) {
+          throw new Error('Unable to upload product photo.')
         }
+
+        const { storageId } = await uploadResponse.json()
+        product.imageStorageId = storageId
       } else if (editingProduct?.imageUrl) {
         product.imageUrl = editingProduct.imageUrl
       } else if (editingProduct?.imageStorageId) {

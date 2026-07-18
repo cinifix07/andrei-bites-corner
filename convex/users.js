@@ -25,6 +25,44 @@ export const seedAdmin = mutation({
   },
 });
 
+export const seedDefaultUsers = mutation({
+  args: {},
+  handler: async (ctx) => {
+    const defaultUsers = [
+      {
+        name: "Andrei",
+        role: "admin",
+        username: "andrei",
+        password: "andrei@123",
+      },
+      {
+        name: "Cinie",
+        role: "user",
+        username: "cinie",
+        password: "0123456",
+      },
+    ];
+
+    const userIds = [];
+
+    for (const user of defaultUsers) {
+      const existingUser = await ctx.db
+        .query("users")
+        .withIndex("by_username", (q) => q.eq("username", user.username))
+        .unique();
+
+      if (existingUser) {
+        await ctx.db.patch(existingUser._id, user);
+        userIds.push(existingUser._id);
+      } else {
+        userIds.push(await ctx.db.insert("users", user));
+      }
+    }
+
+    return userIds;
+  },
+});
+
 export const list = query({
   args: {},
   handler: async (ctx) => {
